@@ -2,6 +2,7 @@ import pickle
 import os
 import cv2
 import streamlit as st 
+import utils
 from utils import Processor
 
 st.title("Sudoku Solver")
