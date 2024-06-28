@@ -29,21 +29,12 @@ if uploaded_file is not None:
     
     if res is not None:
 
-        filename = "output/" + str(uploaded_file.name)
-        
-        with open(filename, "wb") as f:
-            pickle.dump(res, f)
-
-        st.write(f"Output saved successfully to: {filename}")
+        st.subheader(f"Your solution is ready:")
 
         display = res / 255
         st.image(display, width=300)
-
-        with open(filename, "rb") as f:
-            btn = st.download_button('Download Solution', f, file_name='solution.jpg', mime='image/jpg')
     
     else:
         st.subheader("Couldnot find a solution!")
 
     os.remove(os.path.join("assets", str(uploaded_file.name)))
-    os.remove(filename)
