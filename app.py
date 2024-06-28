@@ -34,7 +34,7 @@ if uploaded_file is not None:
         st.write(f"Output saved successfully to: {filename}")
 
         display = res / 255
-        display = cv2.cvtColor(display, cv2.COLOR_BGR2RGB)
+        # display = cv2.cvtColor(display, cv2.COLOR_BGR2RGB)
         st.image(display, width=300)
 
         with open(filename, "rb") as f:

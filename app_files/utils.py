@@ -168,7 +168,7 @@ class Processor:
                         if mask[row][col] == 0:
                             masked = rec_img2[row][col]
                             masked = np.ascontiguousarray(masked, dtype=np.uint8)
-                            rec_img2[row][col] = cv2.putText(masked, str(int(org[row][col])), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.4, (0, 0, 255), 2)
+                            rec_img2[row][col] = cv2.putText(masked, str(int(org[row][col])), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.4, (255, 0, 0), 2)
                     
                     result2 = cv2.hconcat(rec_img2[0])
 
