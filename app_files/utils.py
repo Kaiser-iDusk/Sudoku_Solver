@@ -152,7 +152,7 @@ class Processor:
                         row, col = i // 9, i % 9
                         if mask[row][col] > 0:
                             masked = rec_img[row][col]
-                            rec_img[row][col] = cv2.putText(masked.astype(int), str(int(mask[row][col])), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.4, (0, 255, 0), 2)
+                            rec_img[row][col] = cv2.putText(masked.astype(np.float32), str(int(mask[row][col])), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.4, (0, 255, 0), 2)
                     
                     result = cv2.hconcat(rec_img[0])
 
