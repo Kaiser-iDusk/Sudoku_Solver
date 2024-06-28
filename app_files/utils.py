@@ -3,7 +3,7 @@ import numpy as np
 import pickle
 import tensorflow as tf
 from tensorflow import keras
-from solver import solver as slvr
+from app_files.solver import solver as slvr
 import os
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
