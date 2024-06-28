@@ -30,13 +30,13 @@ if uploaded_file is not None:
     if res is not None:
 
         filename = "output/" + str(uploaded_file.name)
-        with open(filename, "rb") as f:
+        with open(filename, "wb") as f:
             f.write(res.read())    
             
         st.image(filename, width=300)
 
         with open(filename, "rb") as f:
-            st.download_button('Download Solution', f, file_name='solution.jpg', mime='image/jpg')
+            st.download_button('Download Solution', f, file_name='solution.jpg', mime='image/jpeg')
     
     else:
         st.subheader("Couldnot find a solution!")
