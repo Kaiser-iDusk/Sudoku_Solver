@@ -19,7 +19,8 @@ if uploaded_file is not None:
         f.write(uploaded_file.read())
 
     st.success("File uploaded successfully")
-    st.image(os.path.join("assets", str(uploaded_file.name)), width=250)
+    save_path = "assets/" + str(uploaded_file.name)
+    st.image(save_path, width=250)
 
     io_path = os.path.join("assets", str(uploaded_file.name))
     proc = Processor()
@@ -28,7 +29,7 @@ if uploaded_file is not None:
     
     if res is not None:
 
-        filename = os.path.join("output", str(uploaded_file.name))
+        filename = "output/" + str(uploaded_file.name)
         cv2.imwrite(filename, res)
 
         st.image(filename, width=300)
