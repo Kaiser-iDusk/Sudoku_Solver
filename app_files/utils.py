@@ -152,7 +152,8 @@ class Processor:
                         row, col = i // 9, i % 9
                         if mask[row][col] > 0:
                             masked = rec_img[row][col]
-                            rec_img[row][col] = cv2.putText(masked.astype(np.float32), str(int(mask[row][col])), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.4, (0, 255, 0), 2)
+                            masked = np.ascontiguousarray(masked, dtype=np.uint8)
+                            rec_img[row][col] = cv2.putText(masked, str(int(mask[row][col])), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.4, (0, 255, 0), 2)
                     
                     result = cv2.hconcat(rec_img[0])
 
@@ -166,7 +167,8 @@ class Processor:
                         row, col = i // 9, i % 9
                         if mask[row][col] == 0:
                             masked = rec_img2[row][col]
-                            rec_img2[row][col] = cv2.putText(masked.astype(int), str(int(org[row][col])), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.4, (0, 0, 255), 2)
+                            masked = np.ascontiguousarray(masked, dtype=np.uint8)
+                            rec_img2[row][col] = cv2.putText(masked, str(int(org[row][col])), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.4, (0, 0, 255), 2)
                     
                     result2 = cv2.hconcat(rec_img2[0])
 
