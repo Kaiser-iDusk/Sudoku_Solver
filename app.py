@@ -30,13 +30,13 @@ if uploaded_file is not None:
     if res is not None:
 
         filename = "output/" + str(uploaded_file.name)
-        with open(filename, "wb") as f:
-            f.write(res.read())    
-            
-        st.image(filename, width=300)
+        cv2.imwrite(filename, res)
+        st.write(f"Output saved successfully to: {filename}")
+
+        st.image(res, width=300)
 
         with open(filename, "rb") as f:
-            st.download_button('Download Solution', f, file_name='solution.jpg', mime='image/jpeg')
+            st.download_button('Download Solution', f, file_name='solution.jpg', mime='image/jpg')
     
     else:
         st.subheader("Couldnot find a solution!")
