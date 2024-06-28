@@ -36,8 +36,7 @@ if uploaded_file is not None:
         display = res / 255
         st.image(display, width=300)
 
-        with open(filename, "rb") as f:
-            st.download_button('Download Solution', display, file_name='solution.jpg', mime='image/jpg')
+        st.download_button('Download Solution', display, file_name='solution.jpg', mime='image/jpg')
     
     else:
         st.subheader("Couldnot find a solution!")
