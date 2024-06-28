@@ -34,10 +34,11 @@ if uploaded_file is not None:
         st.write(f"Output saved successfully to: {filename}")
 
         display = res / 255
+        display = cv2.cvtColor(display, cv2.COLOR_BGR2RGB)
         st.image(display, width=300)
 
         with open(filename, "rb") as f:
-            st.download_button('Download Solution', f, file_name='solution.jpg', mime='image/jpg')
+            st.download_button('Download Solution', display, file_name='solution.jpg', mime='image/jpg')
     
     else:
         st.subheader("Couldnot find a solution!")
