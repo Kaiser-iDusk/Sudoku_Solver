@@ -30,7 +30,10 @@ if uploaded_file is not None:
     if res is not None:
 
         filename = "output/" + str(uploaded_file.name)
-        cv2.imwrite(filename, res)
+        
+        with open(filename, "wb") as f:
+            f.write(res)
+
         st.write(f"Output saved successfully to: {filename}")
 
         display = res / 255
