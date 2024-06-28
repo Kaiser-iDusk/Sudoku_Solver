@@ -33,7 +33,8 @@ if uploaded_file is not None:
         cv2.imwrite(filename, res)
         st.write(f"Output saved successfully to: {filename}")
 
-        st.image(res, width=300)
+        display = res / 255
+        st.image(display, width=300)
 
         with open(filename, "rb") as f:
             st.download_button('Download Solution', f, file_name='solution.jpg', mime='image/jpg')
