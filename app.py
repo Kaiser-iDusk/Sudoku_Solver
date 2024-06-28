@@ -30,8 +30,9 @@ if uploaded_file is not None:
     if res is not None:
 
         filename = "output/" + str(uploaded_file.name)
-        cv2.imwrite(filename, res)
-
+        with open(filename, "rb") as f:
+            f.write(res.read())    
+            
         st.image(filename, width=300)
 
         with open(filename, "rb") as f:
