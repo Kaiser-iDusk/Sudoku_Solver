@@ -32,7 +32,7 @@ if uploaded_file is not None:
         filename = "output/" + str(uploaded_file.name)
         
         with open(filename, "wb") as f:
-            f.write(res)
+            pickle.dump(res, f)
 
         st.write(f"Output saved successfully to: {filename}")
 
